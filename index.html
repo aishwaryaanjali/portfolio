@@ -78,7 +78,7 @@
 
     #about {
       flex: 1 1 400px;
-      margin-top: calc(100px + 2rem);
+      margin-top: calc(100px + 4rem);
     }
 
     #about h1 {
@@ -129,7 +129,7 @@
       max-width: 1200px;
       margin: 3rem auto;
       padding: 0 1rem;
-      scroll-margin-top: 100px;
+      scroll-margin-top: 150px;
     }
 
     section h2 {
@@ -273,14 +273,28 @@
       color: #4B3F72;
     }
 
+
     footer {
       text-align: center;
       color: #aaa;
       font-size: 0.85rem;
       padding: 3rem 1rem;
     }
+  .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
 
     @media (max-width: 600px) {
+      
+  .arrow {
+    display: none;
+  }
+
       .carousel {
         gap: 1rem;
         justify-content: start;
@@ -291,9 +305,7 @@
         margin: 0 auto;
       }
 
-      .scroll-btn {
-        display: none;
-      }
+      
       nav a {
     font-size: 0.7rem;
   }
@@ -308,7 +320,9 @@
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#project">Projects</a>
+      <a href="#clubs">Clubs & Communities</a>
       <a href="#certifications">Certifications</a>
+      <a href="#achievements">Achievements</a>
     </div>
     <div class="nav-icons">
       <a href="https://www.linkedin.com/in/aishwaryaanjali-athota-947671275/" target="_blank" class="circle-icon"><i class="fab fa-linkedin-in"></i></a>
@@ -374,8 +388,8 @@
   <section id="project">
     <h2>Projects</h2>
     <div class="carousel-container">
-      <button class="scroll-btn scroll-left" aria-label="Scroll left" onclick="scrollCarousel(-340)">&#8592;</button>
-      <div class="carousel" id="carousel">
+  <button class="scroll-btn scroll-left" onclick="scrollCarousel('carousel-projects', -340)">&#8592;</button>
+  <div class="carousel" id="carousel-projects">
         <a href="https://serene-butter-bakery.vercel.app/" class="card">
           <img src="serenebutterbakery.png" alt="Project" />
           <div class="card-content">
@@ -384,11 +398,11 @@
           </div>
         </a>
       </div>
-      <button class="scroll-btn scroll-right" aria-label="Scroll right" onclick="scrollCarousel(340)">&#8594;</button>
-    </div>
+  <button class="scroll-btn scroll-right" onclick="scrollCarousel('carousel-projects', 340)">&#8594;</button>
+</div>
   </section>
 
-  <section id="experience">
+  <section id="clubs">
     <h2>Clubs and Communities</h2>
 
     <div class="experience-item">
@@ -425,8 +439,8 @@
   <section id="certifications">
     <h2>Certifications</h2>
     <div class="carousel-container">
-      <button class="scroll-btn scroll-left" aria-label="Scroll left" onclick="scrollCarousel(-340)">&#8592;</button>
-      <div class="carousel" id="carousel">
+  <button class="scroll-btn scroll-left" onclick="scrollCarousel('carousel-certifications', -340)">&#8592;</button>
+  <div class="carousel" id="carousel-certifications">
         <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs101/Course/NPTEL24CS101S65290081603924061.pdf" class="card">
           <img src="Introduction to Machine Learning.jpg" alt="Introduction to Machine Learning by NPTEL" />
           <div class="card-content">
@@ -440,15 +454,15 @@
           </div>
         </a>
       </div>
-      <button class="scroll-btn scroll-right" aria-label="Scroll right" onclick="scrollCarousel(340)">&#8594;</button>
-    </div>
+  <button class="scroll-btn scroll-right" onclick="scrollCarousel('carousel-certifications', 340)">&#8594;</button>
+</div>
   </section>
 
-  <section id="certifications">
+  <section id="achievements">
     <h2>Achievements</h2>
     <div class="carousel-container">
-      <button class="scroll-btn scroll-left" aria-label="Scroll left" onclick="scrollCarousel(-340)">&#8592;</button>
-      <div class="carousel" id="carousel">
+  <button class="scroll-btn scroll-left" onclick="scrollCarousel('carousel-achievements', -340)">&#8592;</button>
+  <div class="carousel" id="carousel-achievements">
         <a href="https://www.linkedin.com/posts/aishwaryaanjali-athota-947671275_webdesign-teamwork-competitions-activity-7266089412801757184-XOmI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEMyGwcBniSQCfOjaewW-Q8BQHQ1b6utPak" class="card">
           <img src="web weavers.jpeg" alt="Web Weavers won first prize" />
           <div class="card-content">
@@ -463,18 +477,23 @@
             <p class="card-desc"> Our team, DATA CREW secured 2nd position in the ML Project Competition conducted by our department club AIMERS GVPCEW</p>
           </div>
         </a>
+        
       </div>
-      <button class="scroll-btn scroll-right" aria-label="Scroll right" onclick="scrollCarousel(340)">&#8594;</button>
-    </div>
+      <button class="scroll-btn scroll-right" onclick="scrollCarousel('carousel-achievements', 340)">&#8594;</button>
+</div>
+    
   </section>
 
   <footer>© 2025 Aishwaryaanjali Athota — All Rights Reserved</footer>
 
   <script>
-    const carousel = document.getElementById('carousel');
-    function scrollCarousel(offset) {
+  function scrollCarousel(id, offset) {
+    const carousel = document.getElementById(id);
+    if (carousel) {
       carousel.scrollBy({ left: offset, behavior: 'smooth' });
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
